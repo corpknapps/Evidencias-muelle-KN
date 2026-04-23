@@ -655,7 +655,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--gray-50);color:var(--gray
 // ================================================================
 //  ✅ CONFIGURA TU URL DE GOOGLE APPS SCRIPT AQUÍ
 // ================================================================
-const GAS_URL = "https://script.google.com/macros/s/AKfycbz104ZAAYsh4k8Vz5M4peMoOY7bACcuElTCG0vR4IBH9DTswW6_U9Z9MJ3tsULOukEqKw/exec";
+const GAS_URL = "https://script.google.com/macros/s/AKfycbyaNEFkr-jtY8QelNcvbgpQA1jheH62rT8z5o_L8YfsODlIOswXOIrTG3Bgb0PNlvdkMg/exec";
 
 // ── ESTADO ───────────────────────────────────────────────────────
 let sessionUser  = null;
@@ -724,7 +724,7 @@ async function login() {
       showScreen('main'); renderVehiculos();
     } else { errDiv.classList.remove('hidden'); }
   } catch(e) {
-    if (GAS_URL === "https://script.google.com/macros/s/AKfycbz104ZAAYsh4k8Vz5M4peMoOY7bACcuElTCG0vR4IBH9DTswW6_U9Z9MJ3tsULOukEqKw/exec") {
+    if (GAS_URL === "https://script.google.com/macros/s/AKfycbyaNEFkr-jtY8QelNcvbgpQA1jheH62rT8z5o_L8YfsODlIOswXOIrTG3Bgb0PNlvdkMg/exec") {
       sessionUser = usuario; sessionEmail = usuario+'@empresa.com';
       localStorage.setItem('evid_session', JSON.stringify({ usuario:sessionUser, correo:sessionEmail }));
       document.getElementById('header-user').textContent = sessionUser;
