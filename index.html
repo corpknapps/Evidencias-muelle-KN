@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Evidencias muelle KN – Gestión de Cargue</title>
+<title>EvidLog K+N – Gestión de Evidencias</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -278,6 +278,65 @@ body{font-family:'DM Sans',sans-serif;background:var(--gray-50);color:var(--gray
 @media(max-width:360px){.vehicle-grid{grid-template-columns:repeat(2,1fr)}.preview-item,.preview-item img{width:78px;height:78px}}
 @media(min-width:600px){.detalle-content{max-width:620px;margin:0 auto}.main-content{max-width:720px;margin:0 auto;width:100%}}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--gray-300);border-radius:4px}
+
+/* ── DELETE BUTTON ON CARD ───────────────────────────────────── */
+.vehicle-card{position:relative;}
+.btn-delete-card{position:absolute;top:6px;right:6px;width:26px;height:26px;background:var(--red-500);color:white;border:2px solid white;border-radius:50%;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:5;line-height:1;padding:0;transition:transform 0.15s,background 0.15s;}
+.btn-delete-card:hover{background:var(--red-600);transform:scale(1.15);}
+
+/* ── EDIT BADGE ──────────────────────────────────────────────── */
+.placa-badge-wrap{display:flex;align-items:center;gap:6px;}
+.btn-edit-placa{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:white;border-radius:7px;padding:5px 8px;cursor:pointer;display:flex;align-items:center;gap:4px;font-size:11px;font-weight:600;font-family:'DM Sans',sans-serif;transition:background 0.2s;}
+.btn-edit-placa:hover{background:rgba(255,255,255,0.28);}
+.btn-edit-placa svg{width:12px;height:12px;}
+
+/* ── INFORMES SCREEN ─────────────────────────────────────────── */
+#screen-informes{background:var(--gray-100);}
+.informes-header{background:linear-gradient(135deg,var(--blue-950),var(--blue-900));padding:12px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.25);}
+.informes-header h2{color:white;font-size:16px;font-weight:700;margin:0;}
+.informes-content{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:12px;padding-bottom:32px;}
+.informes-filter{background:white;border-radius:var(--radius);padding:16px;box-shadow:var(--shadow-sm);border:1px solid rgba(0,0,0,0.04);}
+.informes-filter-title{font-size:13px;font-weight:700;color:var(--gray-700);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px;display:flex;align-items:center;gap:7px;}
+.informes-filter-title svg{width:14px;height:14px;color:var(--blue-600);}
+.filter-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;}
+.btn-buscar{width:100%;padding:12px;background:var(--blue-600);color:white;border:none;border-radius:var(--radius-sm);font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.2s;}
+.btn-buscar:hover{background:var(--blue-800);}
+.btn-buscar svg{width:16px;height:16px;}
+.registro-card{background:white;border-radius:var(--radius);padding:14px;box-shadow:var(--shadow-sm);border:1px solid rgba(0,0,0,0.04);animation:cardIn 0.25s ease;}
+.registro-card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.reg-placa{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--blue-900);background:var(--blue-50);padding:4px 10px;border-radius:6px;border:1px solid var(--blue-100);}
+.reg-fecha{font-size:11px;color:var(--gray-400);}
+.reg-cat{font-size:11px;font-weight:700;color:var(--green-700);background:var(--green-100);padding:2px 8px;border-radius:12px;}
+.reg-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px;}
+.reg-item{font-size:11px;color:var(--gray-600);}<br>.reg-item b{color:var(--gray-800);}
+.reg-actions{display:flex;gap:8px;}
+.btn-reg{flex:1;padding:9px;border:none;border-radius:var(--radius-sm);font-size:12px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px;transition:all 0.2s;}
+.btn-reg svg{width:13px;height:13px;}
+.btn-reg.dl{background:var(--blue-50);color:var(--blue-700);border:1px solid var(--blue-100);}
+.btn-reg.dl:hover{background:var(--blue-100);}
+.btn-reg.em{background:var(--green-100);color:var(--green-700);border:1px solid #bbf7d0;}
+.btn-reg.em:hover{background:#bbf7d0;}
+.informes-empty{text-align:center;padding:40px 20px;color:var(--gray-400);font-size:13px;}
+.nav-tabs{display:flex;background:rgba(0,0,0,0.15);border-radius:10px;padding:3px;gap:2px;margin-left:auto;}
+.nav-tab{padding:5px 11px;border-radius:8px;border:none;font-size:12px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;color:rgba(255,255,255,0.65);background:transparent;transition:all 0.18s;}
+.nav-tab.active{background:white;color:var(--blue-900);}
+
+/* ── MODAL REENVÍO ───────────────────────────────────────────── */
+#modal-reenvio .modal-box{max-width:380px;}
+.modal-correo-info{font-size:12px;color:var(--gray-500);margin-bottom:12px;line-height:1.5;}
+.modal-correo-info b{color:var(--blue-800);}
+
+/* ── BOTÓN EXCEL ─────────────────────────────────────────────── */
+.btn-excel{width:100%;padding:11px;background:linear-gradient(135deg,#166534,#15803d);color:white;border:none;border-radius:var(--radius-sm);font-size:13px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;transition:all 0.2s;margin-top:8px;}
+.btn-excel:hover{background:linear-gradient(135deg,#14532d,#166534);}
+.btn-excel svg{width:15px;height:15px;}
+.btn-excel:disabled{background:var(--gray-300);cursor:not-allowed;}
+
+/* ── REG ACTIONS 3 cols ──────────────────────────────────────── */
+.reg-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;}
+.reg-actions.three{grid-template-columns:1fr 1fr 1fr;}
+
+
 </style>
 </head>
 <body>
@@ -299,18 +358,21 @@ body{font-family:'DM Sans',sans-serif;background:var(--gray-50);color:var(--gray
         </svg>
       </div>
       <div class="logo-text">
-        <span class="logo-main">Evidencias muelle KN</span>
+        <span class="logo-main">EvidLog K+N</span>
         <span class="logo-sub">Sistema de Evidencias</span>
       </div>
     </div>
     <div class="login-card">
       <h2>Acceso al Sistema</h2>
-      <p class="login-subtitle">Ingrese sus credenciales para continuar</p>
+      <p class="login-subtitle">Seleccione su usuario e ingrese su contraseña</p>
       <div class="field-group">
         <label>Usuario</label>
-        <div class="input-wrapper">
-          <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          <input type="text" id="inp-usuario" placeholder="Nombre de usuario" autocomplete="off">
+        <div class="select-wrapper" style="background:var(--gray-50);border:1.5px solid var(--gray-200);border-radius:var(--radius-sm);">
+          <svg style="position:absolute;left:12px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--gray-400);pointer-events:none;z-index:1;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <select id="inp-usuario" style="padding-left:38px;background:transparent;font-size:15px;" onchange="document.getElementById('inp-clave').focus()">
+            <option value="">— Cargando usuarios… —</option>
+          </select>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
       </div>
       <div class="field-group">
@@ -332,7 +394,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--gray-50);color:var(--gray
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
       </button>
     </div>
-    <p class="login-footer">KN evidencias v2.0</p>
+    <p class="login-footer">Sistema de Gestión de Evidencias K+N v2.0</p>
   </div>
 </div>
 
@@ -341,13 +403,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--gray-50);color:var(--gray
   <header class="app-header">
     <div class="header-logo">
       <svg viewBox="0 0 28 28" fill="none"><rect x="2" y="10" width="24" height="14" rx="2" fill="white" fill-opacity="0.9"/><rect x="6" y="5" width="14" height="8" rx="1.5" fill="white" fill-opacity="0.55"/><circle cx="14" cy="17" r="2.5" fill="#3b82f6"/></svg>
-      Evidencias muelle KN
+      EvidLog K+N
     </div>
     <div class="header-right">
       <div class="user-badge">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         <span id="header-user">—</span>
       </div>
+      <button class="btn-icon" onclick="showScreen('informes');renderInformes()" title="Informes" style="position:relative">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      </button>
       <button class="btn-icon" onclick="logout()" title="Cerrar sesión">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
       </button>
@@ -378,7 +443,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--gray-50);color:var(--gray
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
       Volver
     </button>
-    <div class="placa-badge" id="placa-badge">—</div>
+    <div class="placa-badge-wrap">
+      <div class="placa-badge" id="placa-badge">—</div>
+      <button class="btn-edit-placa" onclick="editarNombreVehiculo()" title="Editar nombre">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        Editar
+      </button>
+    </div>
     <div style="width:80px"></div>
   </div>
   <div class="detalle-content">
@@ -425,6 +496,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--gray-50);color:var(--gray
         <div class="input-wrapper">
           <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
           <input type="text" id="responsable" placeholder="Nombre completo del responsable">
+        </div>
+      </div>
+      <div class="field-group">
+        <label>Placa del Vehículo</label>
+        <div class="input-wrapper">
+          <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="22" height="18" rx="2"/><path d="M1 9h22"/></svg>
+          <input type="text" id="placa-vehiculo" placeholder="Ej: ABC123" style="text-transform:uppercase">
         </div>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
@@ -631,6 +709,76 @@ body{font-family:'DM Sans',sans-serif;background:var(--gray-50);color:var(--gray
   </div>
 </div>
 
+<!-- ====== INFORMES ====== -->
+<div id="screen-informes" class="screen hidden">
+  <div class="informes-header">
+    <button class="btn-back" onclick="showScreen('main')" style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.18);">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+      Volver
+    </button>
+    <h2>📊 Informes</h2>
+    <div style="width:80px"></div>
+  </div>
+  <div class="informes-content">
+    <div class="informes-filter">
+      <div class="informes-filter-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 3H2l8 9.46V19l4 2V12.46L22 3z"/></svg>
+        Filtrar por fecha
+      </div>
+      <div class="filter-row">
+        <div class="field-group" style="margin:0">
+          <label>Desde</label>
+          <div class="input-wrapper">
+            <input type="date" id="inf-desde" style="padding:11px 10px;font-size:14px">
+          </div>
+        </div>
+        <div class="field-group" style="margin:0">
+          <label>Hasta</label>
+          <div class="input-wrapper">
+            <input type="date" id="inf-hasta" style="padding:11px 10px;font-size:14px">
+          </div>
+        </div>
+      </div>
+      <button class="btn-buscar" onclick="buscarRegistros()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        Buscar registros
+      </button>
+      <button class="btn-excel" id="btn-excel" onclick="descargarExcel()" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+        Descargar Excel
+      </button>
+    </div>
+    <div id="inf-resultados"></div>
+  </div>
+</div>
+
+<!-- ====== MODAL REENVÍO CORREO ====== -->
+<div id="modal-reenvio" class="modal-overlay hidden">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3>Reenviar correo</h3>
+      <button class="btn-icon" onclick="document.getElementById('modal-reenvio').classList.add('hidden')" style="background:var(--gray-100);color:var(--gray-600);width:32px;height:32px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <p class="modal-correo-info">Registro: <b id="modal-reenvio-placa">—</b></p>
+    <div class="field-group">
+      <label>Correo destino</label>
+      <div class="input-wrapper">
+        <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <input type="email" id="modal-reenvio-correo" placeholder="correo@empresa.com">
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-secondary" onclick="document.getElementById('modal-reenvio').classList.add('hidden')">Cancelar</button>
+      <button class="btn-primary" onclick="confirmarReenvio()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        Enviar
+      </button>
+    </div>
+  </div>
+</div>
+
 <!-- ====== LOADER ====== -->
 <div id="loader-overlay" class="loader-overlay hidden">
   <div class="loader-box">
@@ -655,7 +803,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--gray-50);color:var(--gray
 // ================================================================
 //  ✅ CONFIGURA TU URL DE GOOGLE APPS SCRIPT AQUÍ
 // ================================================================
-const GAS_URL = "https://script.google.com/macros/s/AKfycbyaNEFkr-jtY8QelNcvbgpQA1jheH62rT8z5o_L8YfsODlIOswXOIrTG3Bgb0PNlvdkMg/exec";
+const GAS_URL = "https://script.google.com/macros/s/AKfycbzh20k5fshtfdGmvAn3ZNZbL3UPzYAZFrVwfwYkxRjrrJayah-lt5V4IAlUJt6KB3Zu-w/exec";
 
 // ── ESTADO ───────────────────────────────────────────────────────
 let sessionUser  = null;
@@ -672,7 +820,7 @@ let scannerContadorAuto = 0;
 
 // ── INIT ──────────────────────────────────────────────────────────
 window.addEventListener('DOMContentLoaded', () => {
-  cargarSesion(); cargarVehiculos();
+  cargarSesion(); cargarVehiculos(); cargarUsuarios();
   // Registrar eventos del canvas de recorte
   const c = document.getElementById('crop-canvas');
   if (c) {
@@ -705,13 +853,31 @@ function showScreen(name) {
   t.classList.remove('hidden'); t.classList.add('active');
 }
 
+// ── CARGAR USUARIOS (lista desplegable) ───────────────────────────
+async function cargarUsuarios() {
+  const sel = document.getElementById('inp-usuario');
+  try {
+    const res = await postGAS({ action: 'getUsuarios' });
+    if (res.success && res.usuarios && res.usuarios.length > 0) {
+      sel.innerHTML = '<option value="">— Seleccione usuario —</option>' +
+        res.usuarios.map(u => `<option value="${u}">${u}</option>`).join('');
+    } else {
+      sel.innerHTML = '<option value="">— Sin usuarios configurados —</option>';
+    }
+  } catch(e) {
+    // Si no hay conexión, dejar opción genérica
+    sel.innerHTML = '<option value="">— Error al cargar usuarios —</option>';
+  }
+}
+
 // ── LOGIN ─────────────────────────────────────────────────────────
 async function login() {
   const usuario = document.getElementById('inp-usuario').value.trim();
   const clave   = document.getElementById('inp-clave').value.trim();
   const errDiv  = document.getElementById('login-error');
   const btn     = document.getElementById('btn-login');
-  if (!usuario || !clave) { showToast('Completa todos los campos','error'); return; }
+  if (!usuario) { showToast('Selecciona un usuario','error'); return; }
+  if (!clave)   { showToast('Ingresa tu contraseña','error'); return; }
   errDiv.classList.add('hidden');
   btn.disabled = true;
   btn.innerHTML = '<div class="loader-spinner" style="width:20px;height:20px;margin:0;border-width:2px"></div><span>Verificando...</span>';
@@ -724,7 +890,7 @@ async function login() {
       showScreen('main'); renderVehiculos();
     } else { errDiv.classList.remove('hidden'); }
   } catch(e) {
-    if (GAS_URL === "https://script.google.com/macros/s/AKfycbyaNEFkr-jtY8QelNcvbgpQA1jheH62rT8z5o_L8YfsODlIOswXOIrTG3Bgb0PNlvdkMg/exec") {
+    if (GAS_URL === "https://script.google.com/macros/s/AKfycbzh20k5fshtfdGmvAn3ZNZbL3UPzYAZFrVwfwYkxRjrrJayah-lt5V4IAlUJt6KB3Zu-w/exec") {
       sessionUser = usuario; sessionEmail = usuario+'@empresa.com';
       localStorage.setItem('evid_session', JSON.stringify({ usuario:sessionUser, correo:sessionEmail }));
       document.getElementById('header-user').textContent = sessionUser;
@@ -742,8 +908,10 @@ function logout() {
   sessionUser = null; sessionEmail = null;
   localStorage.removeItem('evid_session');
   showScreen('login');
-  document.getElementById('inp-usuario').value = '';
+  const sel = document.getElementById('inp-usuario');
+  if (sel) sel.selectedIndex = 0;
   document.getElementById('inp-clave').value = '';
+  cargarUsuarios();
 }
 function togglePass() {
   const inp = document.getElementById('inp-clave');
@@ -763,7 +931,7 @@ function crearVehiculo() {
   const placa = document.getElementById('inp-placa').value.trim().toUpperCase();
   if (!placa || placa.length < 2) { showToast('Ingresa un identificador válido','error'); return; }
   if (!vehiculos[placa]) {
-    vehiculos[placa] = { fotos:[], documentos:[], categoria:'', transportadora:'', responsable:'', pallets:0, cajas:0, unidades:0, fechaCreado:new Date().toISOString() };
+    vehiculos[placa] = { fotos:[], documentos:[], categoria:'', transportadora:'', responsable:'', placaVehiculo:'', pallets:0, cajas:0, unidades:0, fechaCreado:new Date().toISOString() };
     guardarVehiculos();
   }
   hideModalPlaca(); abrirVehiculo(placa);
@@ -772,12 +940,13 @@ function abrirVehiculo(placa) {
   placaActiva = placa; pdfGenerado = null;
   const v = vehiculos[placa];
   document.getElementById('placa-badge').textContent = placa;
-  document.getElementById('categoria').value      = v.categoria      || '';
-  document.getElementById('transportadora').value = v.transportadora || '';
-  document.getElementById('responsable').value    = v.responsable    || '';
-  document.getElementById('pallets').value        = v.pallets        || 0;
-  document.getElementById('cajas').value          = v.cajas          || 0;
-  document.getElementById('unidades').value       = v.unidades       || 0;
+  document.getElementById('categoria').value        = v.categoria      || '';
+  document.getElementById('transportadora').value   = v.transportadora || '';
+  document.getElementById('responsable').value      = v.responsable    || '';
+  document.getElementById('placa-vehiculo').value   = v.placaVehiculo  || '';
+  document.getElementById('pallets').value          = v.pallets        || 0;
+  document.getElementById('cajas').value            = v.cajas          || 0;
+  document.getElementById('unidades').value         = v.unidades       || 0;
   renderPreviews('fotos'); renderPreviews('documentos'); actualizarCounts();
   detenerCamaraFotos();
   document.getElementById('btn-cam-fotos-txt').textContent = 'Activar Cámara';
@@ -797,8 +966,9 @@ function renderVehiculos() {
     const total = (v.fotos||[]).length + (v.documentos||[]).length;
     const card = document.createElement('div');
     card.className = 'vehicle-card';
-    card.onclick = () => abrirVehiculo(placa);
-    card.innerHTML = `${total > 0 ? `<div class="vehicle-photos-badge">${total}</div>` : ''}
+    card.onclick = (e) => { if (!e.target.closest('.btn-delete-card')) abrirVehiculo(placa); };
+    card.innerHTML = `<button class="btn-delete-card" title="Eliminar" onclick="eliminarVehiculo('${placa}')">×</button>
+      ${total > 0 ? `<div class="vehicle-photos-badge">${total}</div>` : ''}
       <div class="vehicle-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
       <div class="vehicle-placa">${placa}</div>
       <div class="vehicle-meta">${v.categoria || 'Sin categoría'}</div>
@@ -806,11 +976,19 @@ function renderVehiculos() {
     container.appendChild(card);
   });
 }
+function eliminarVehiculo(placa) {
+  if (!confirm('¿Eliminar el vehículo "' + placa + '"?\nSe borrarán todas sus fotos y datos.')) return;
+  delete vehiculos[placa];
+  guardarVehiculos();
+  renderVehiculos();
+  showToast('Vehículo eliminado','success');
+}
 function volver() {
   if (placaActiva && vehiculos[placaActiva]) {
     vehiculos[placaActiva].categoria      = document.getElementById('categoria').value;
     vehiculos[placaActiva].transportadora = document.getElementById('transportadora').value;
     vehiculos[placaActiva].responsable    = document.getElementById('responsable').value;
+    vehiculos[placaActiva].placaVehiculo  = document.getElementById('placa-vehiculo').value.trim().toUpperCase();
     vehiculos[placaActiva].pallets        = parseInt(document.getElementById('pallets').value)   || 0;
     vehiculos[placaActiva].cajas          = parseInt(document.getElementById('cajas').value)     || 0;
     vehiculos[placaActiva].unidades       = parseInt(document.getElementById('unidades').value)  || 0;
@@ -821,7 +999,21 @@ function volver() {
   showScreen('main'); renderVehiculos();
 }
 
-// ── CÁMARA FOTOS VEHÍCULO — FULLSCREEN ───────────────────────────
+function editarNombreVehiculo() {
+  const nuevoNombre = prompt('Editar nombre del vehículo:', placaActiva);
+  if (!nuevoNombre || !nuevoNombre.trim()) return;
+  const nuevo = nuevoNombre.trim().toUpperCase();
+  if (nuevo === placaActiva) return;
+  if (vehiculos[nuevo]) { showToast('Ya existe un vehículo con ese nombre','error'); return; }
+  vehiculos[nuevo] = { ...vehiculos[placaActiva] };
+  delete vehiculos[placaActiva];
+  placaActiva = nuevo;
+  guardarVehiculos();
+  document.getElementById('placa-badge').textContent = nuevo;
+  showToast('Nombre actualizado','success');
+}
+
+
 async function toggleCameraFotos() {
   if (!camaraFotosOn) { await activarCamaraFotos(); }
   else { detenerCamaraFotos(); }
@@ -1337,6 +1529,7 @@ function validarAntes() {
   v.categoria      = categoria;
   v.transportadora = transportadora;
   v.responsable    = responsable;
+  v.placaVehiculo  = document.getElementById('placa-vehiculo').value.trim().toUpperCase();
   v.pallets        = parseInt(document.getElementById('pallets').value)   || 0;
   v.cajas          = parseInt(document.getElementById('cajas').value)     || 0;
   v.unidades       = parseInt(document.getElementById('unidades').value)  || 0;
@@ -1369,12 +1562,27 @@ async function accionEnviarCorreo() {
     const payload = {
       action:'todo', placa:placaActiva,
       categoria:v.categoria, transportadora:v.transportadora,
-      responsable:v.responsable, pallets:v.pallets, cajas:v.cajas, unidades:v.unidades,
+      responsable:v.responsable, placaVehiculo:v.placaVehiculo||'',
+      pallets:v.pallets, cajas:v.cajas, unidades:v.unidades,
       usuario:sessionUser, correo:sessionEmail,
       fotos:v.fotos, documentos:v.documentos
     };
     const res = await postGAS(payload);
     if (res && res.success) {
+      // Guardar en historial local para módulo de informes
+      const historial = JSON.parse(localStorage.getItem('evid_historial') || '[]');
+      historial.unshift({
+        fecha: new Date().toISOString(),
+        placa: placaActiva,
+        categoria: v.categoria, transportadora: v.transportadora,
+        responsable: v.responsable, placaVehiculo: v.placaVehiculo||'',
+        pallets: v.pallets, cajas: v.cajas, unidades: v.unidades,
+        usuario: sessionUser, correo: sessionEmail,
+        fotos: v.fotos, documentos: v.documentos
+      });
+      // Limitar historial a 200 registros
+      if (historial.length > 200) historial.splice(200);
+      localStorage.setItem('evid_historial', JSON.stringify(historial));
       hideLoader();
       showToast('✓ Correo enviado y registrado en Sheets','success');
       // Limpiar vehículo después del envío exitoso
@@ -1405,13 +1613,13 @@ async function generarPDFLocal(v, placa) {
   // ── PORTADA
   doc.setFillColor(23,37,84); doc.rect(0,0,W,32,'F');
   doc.setTextColor(255,255,255);
-  doc.setFontSize(20); doc.setFont('helvetica','bold'); doc.text('Evidencias muelle KN',M,14);
+  doc.setFontSize(20); doc.setFont('helvetica','bold'); doc.text('EvidLog K+N',M,14);
   doc.setFontSize(11); doc.setFont('helvetica','normal'); doc.text('Sistema de Gestión de Evidencias',M,22);
   doc.setFontSize(9); doc.text(new Date().toLocaleString('es-CO'),W-M,22,{align:'right'});
   let y = 42;
   doc.setFillColor(239,246,255); doc.rect(M,y-4,W-M*2,96,'F');
   doc.setTextColor(30,30,30);
-  const info=[['Placa / ID',placa],['Categoría',v.categoria],['Transportadora',v.transportadora||'—'],['Responsable',v.responsable],['Pallets',v.pallets||0],['Cajas',v.cajas||0],['Unidades',v.unidades||0],['Usuario',sessionUser],['Correo',sessionEmail],['Fecha',new Date().toLocaleString('es-CO')],['Fotos vehículo',v.fotos.length+' imagen(es)'],['Documentos',v.documentos.length+' imagen(es)'],['Total páginas',(v.fotos.length+v.documentos.length+1)+' páginas']];
+  const info=[['Placa / ID',placa],['Categoría',v.categoria],['Transportadora',v.transportadora||'—'],['Responsable',v.responsable],['Placa vehículo',v.placaVehiculo||'—'],['Pallets',v.pallets||0],['Cajas',v.cajas||0],['Unidades',v.unidades||0],['Usuario',sessionUser],['Correo',sessionEmail],['Fecha',new Date().toLocaleString('es-CO')],['Fotos vehículo',v.fotos.length+' imagen(es)'],['Documentos',v.documentos.length+' imagen(es)'],['Total páginas',(v.fotos.length+v.documentos.length+1)+' páginas']];
   doc.setFontSize(10);
   info.forEach(([k,val],i)=>{
     const yy=y+i*7;
@@ -1447,7 +1655,7 @@ async function generarPDFLocal(v, placa) {
     doc.setPage(p);
     doc.setFillColor(245,245,245); doc.rect(0,H-8,W,8,'F');
     doc.setFontSize(7); doc.setTextColor(140,140,140); doc.setFont('helvetica','normal');
-    doc.text(`Página ${p} de ${total}  |  ${placa}  |  ${new Date().toLocaleString('es-CO')}  |  Evidencias muelle KN v2.0`,W/2,H-2.5,{align:'center'});
+    doc.text(`Página ${p} de ${total}  |  ${placa}  |  ${new Date().toLocaleString('es-CO')}  |  EvidLog K+N v2.0`,W/2,H-2.5,{align:'center'});
   }
   return doc.output('blob');
 }
@@ -1507,6 +1715,203 @@ function fechaFilename() {
   const d=new Date();
   return `${d.getFullYear()}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}_${String(d.getHours()).padStart(2,'0')}${String(d.getMinutes()).padStart(2,'0')}`;
 }
+
+// ── MÓDULO INFORMES ───────────────────────────────────────────────
+let _registrosActuales = [];
+let _regReenvioActual  = null;
+
+function renderInformes() {
+  const hoy       = new Date();
+  const primerDia = new Date(hoy.getFullYear(), hoy.getMonth(), 1);
+  const fmt = d => d.toISOString().split('T')[0];
+  const desdeEl = document.getElementById('inf-desde');
+  const hastaEl = document.getElementById('inf-hasta');
+  if (!desdeEl.value) desdeEl.value = fmt(primerDia);
+  if (!hastaEl.value) hastaEl.value = fmt(hoy);
+  buscarRegistros();
+}
+
+async function buscarRegistros() {
+  const desde     = document.getElementById('inf-desde').value;
+  const hasta     = document.getElementById('inf-hasta').value;
+  const container = document.getElementById('inf-resultados');
+  const btnExcel  = document.getElementById('btn-excel');
+  _registrosActuales = [];
+  if (btnExcel) btnExcel.disabled = true;
+
+  container.innerHTML = '<div class="informes-empty"><div class="loader-spinner" style="width:32px;height:32px;margin:0 auto 10px;border-width:3px"></div>Consultando registros...</div>';
+
+  try {
+    const res = await postGAS({ action: 'getRegistros', desde, hasta, usuario: sessionUser });
+    if (!res.success) {
+      container.innerHTML = '<div class="informes-empty">❌ Error al consultar: ' + (res.error || 'desconocido') + '</div>';
+      return;
+    }
+
+    const registros = res.registros || [];
+    _registrosActuales = registros;
+
+    if (registros.length === 0) {
+      container.innerHTML = '<div class="informes-empty">📭 No se encontraron registros en ese rango de fechas.</div>';
+      return;
+    }
+
+    if (btnExcel) btnExcel.disabled = false;
+    container.innerHTML = `<div style="font-size:12px;color:var(--gray-500);margin-bottom:8px;font-weight:600">${registros.length} registro${registros.length !== 1 ? 's' : ''} encontrado${registros.length !== 1 ? 's' : ''}</div>`;
+
+    registros.forEach((reg, idx) => {
+      const fechaD  = new Date(reg.fecha).toLocaleString('es-CO');
+      const urlsRaw = reg.urls || '';
+      const urlVeh  = (urlsRaw.match(/VEHICULO:\s*(https?:\/\/[^\s|]+)/i) || [])[1] || '';
+      const urlDoc  = (urlsRaw.match(/DOCUMENTOS:\s*(https?:\/\/[^\s|]+)/i) || [])[1] || '';
+      const numPDFs = (urlVeh ? 1 : 0) + (urlDoc ? 1 : 0);
+      const colCls  = numPDFs === 2 ? ' three' : '';
+
+      const card = document.createElement('div');
+      card.className = 'registro-card';
+      card.innerHTML = `
+        <div class="registro-card-header">
+          <span class="reg-placa">${reg.placa}</span>
+          <span class="reg-cat">${reg.categoria}</span>
+          <span class="reg-fecha">${fechaD}</span>
+        </div>
+        <div class="reg-grid">
+          <div class="reg-item"><b>Transportadora:</b> ${reg.transportadora||'—'}</div>
+          <div class="reg-item"><b>Responsable:</b> ${reg.responsable||'—'}</div>
+          <div class="reg-item"><b>Placa vehículo:</b> ${reg.placaVehiculo||'—'}</div>
+          <div class="reg-item"><b>Usuario:</b> ${reg.usuario||'—'}</div>
+          <div class="reg-item"><b>Pallets:</b> ${reg.pallets||0} &nbsp;·&nbsp; <b>Cajas:</b> ${reg.cajas||0} &nbsp;·&nbsp; <b>Uds:</b> ${reg.unidades||0}</div>
+          <div class="reg-item"><b>Fotos:</b> ${reg.fotos||0} &nbsp;·&nbsp; <b>Docs:</b> ${reg.documentos||0} &nbsp;·&nbsp; <b>Estado:</b> ${reg.estado||'—'}</div>
+        </div>
+        <div class="reg-actions${colCls}">
+          ${urlVeh ? `<button class="btn-reg dl" id="btn-veh-${idx}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            PDF Vehículo</button>` : ''}
+          ${urlDoc ? `<button class="btn-reg dl" id="btn-doc-${idx}" style="background:var(--gray-50);color:var(--gray-700);border-color:var(--gray-200)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            PDF Docs</button>` : ''}
+          <button class="btn-reg em" id="btn-rev-${idx}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Reenviar</button>
+        </div>`;
+
+      if (urlVeh) card.querySelector(`#btn-veh-${idx}`).onclick = () => window.open(urlVeh, '_blank');
+      if (urlDoc) card.querySelector(`#btn-doc-${idx}`).onclick = () => window.open(urlDoc, '_blank');
+      card.querySelector(`#btn-rev-${idx}`).onclick = () => abrirModalReenvio(reg);
+      container.appendChild(card);
+    });
+
+  } catch(e) {
+    container.innerHTML = '<div class="informes-empty">❌ Error de conexión: ' + e.message + '</div>';
+  }
+}
+
+// ── MODAL REENVÍO ─────────────────────────────────────────────────
+function abrirModalReenvio(reg) {
+  _regReenvioActual = reg;
+  document.getElementById('modal-reenvio-placa').textContent = reg.placa + ' · ' + reg.categoria;
+  document.getElementById('modal-reenvio-correo').value      = sessionEmail || '';
+  document.getElementById('modal-reenvio').classList.remove('hidden');
+  setTimeout(() => document.getElementById('modal-reenvio-correo').focus(), 120);
+}
+
+async function confirmarReenvio() {
+  const correo = document.getElementById('modal-reenvio-correo').value.trim();
+  const reg    = _regReenvioActual;
+  if (!correo || !correo.includes('@')) { showToast('Ingresa un correo válido','error'); return; }
+  document.getElementById('modal-reenvio').classList.add('hidden');
+  showLoader('Reenviando correo...','Por favor espere');
+  try {
+    const payload = {
+      action:         'reenviarCorreo',
+      placa:          reg.placa,
+      categoria:      reg.categoria,
+      transportadora: reg.transportadora,
+      responsable:    reg.responsable,
+      placaVehiculo:  reg.placaVehiculo || '',
+      pallets:        reg.pallets,
+      cajas:          reg.cajas,
+      unidades:       reg.unidades,
+      usuario:        reg.usuario,
+      correo:         correo,
+      urls:           reg.urls || '',
+      fotos:          [],
+      documentos:     []
+    };
+    const res = await postGAS(payload);
+    hideLoader();
+    if (res && res.success) showToast('✓ Correo enviado a ' + correo,'success');
+    else showToast('Error: ' + (res.error||'desconocido'),'error');
+  } catch(e) {
+    hideLoader();
+    showToast('Error de conexión','error');
+  }
+}
+
+// ── EXPORTAR EXCEL ────────────────────────────────────────────────
+async function descargarExcel() {
+  if (!_registrosActuales.length) { showToast('No hay registros para exportar','warning'); return; }
+  showLoader('Generando Excel...','Por favor espere');
+  try {
+    await cargarScript('https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js');
+    const desde = document.getElementById('inf-desde').value || 'inicio';
+    const hasta  = document.getElementById('inf-hasta').value  || 'hoy';
+
+    const cabeceras = ['Fecha','Usuario','Placa ID','Categoría','Transportadora','Responsable','Placa Vehículo','Pallets','Cajas','Unidades','Fotos','Docs','Estado'];
+    const filas = _registrosActuales.map(r => [
+      new Date(r.fecha).toLocaleString('es-CO'),
+      r.usuario        || '',
+      r.placa          || '',
+      r.categoria      || '',
+      r.transportadora || '',
+      r.responsable    || '',
+      r.placaVehiculo  || '',
+      Number(r.pallets)   || 0,
+      Number(r.cajas)     || 0,
+      Number(r.unidades)  || 0,
+      Number(r.fotos)     || 0,
+      Number(r.documentos)|| 0,
+      r.estado         || ''
+    ]);
+
+    const wb  = XLSX.utils.book_new();
+    const ws  = XLSX.utils.aoa_to_sheet([cabeceras, ...filas]);
+    ws['!cols'] = [22,14,16,14,18,20,16,9,9,9,8,8,12].map(w => ({ wch: w }));
+    XLSX.utils.book_append_sheet(wb, ws, 'Registros');
+
+    // Hoja resumen
+    const totalP = _registrosActuales.reduce((a,r) => a + (Number(r.pallets)||0), 0);
+    const totalC = _registrosActuales.reduce((a,r) => a + (Number(r.cajas)||0), 0);
+    const totalU = _registrosActuales.reduce((a,r) => a + (Number(r.unidades)||0), 0);
+    const byCat  = _registrosActuales.reduce((a,r) => { a[r.categoria||'Sin cat'] = (a[r.categoria||'Sin cat']||0)+1; return a; }, {});
+    const byTr   = _registrosActuales.reduce((a,r) => { const k=r.transportadora||'Sin transp'; a[k]=(a[k]||0)+1; return a; }, {});
+    const wsRes  = XLSX.utils.aoa_to_sheet([
+      ['EvidLog KN – Resumen de Registros'],
+      ['Período', desde + ' → ' + hasta],
+      ['Total registros', _registrosActuales.length],
+      ['Total Pallets', totalP],
+      ['Total Cajas', totalC],
+      ['Total Unidades', totalU],
+      [],
+      ['Por Categoría','Cantidad'],
+      ...Object.entries(byCat).map(([k,v]) => [k, v]),
+      [],
+      ['Por Transportadora','Cantidad'],
+      ...Object.entries(byTr).map(([k,v]) => [k, v])
+    ]);
+    wsRes['!cols'] = [{ wch: 24 }, { wch: 14 }];
+    XLSX.utils.book_append_sheet(wb, wsRes, 'Resumen');
+
+    XLSX.writeFile(wb, 'EvidLogKN_' + desde + '_' + hasta + '.xlsx');
+    hideLoader();
+    showToast('✓ Excel descargado','success');
+  } catch(e) {
+    hideLoader();
+    showToast('Error al generar Excel: ' + e.message,'error');
+  }
+}
+
 </script>
 </body>
 </html>
+
